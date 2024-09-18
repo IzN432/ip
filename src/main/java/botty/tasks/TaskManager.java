@@ -91,6 +91,7 @@ public class TaskManager {
      * @param task the task to be added
      */
     public void addTask(Task<? extends TaskData> task) {
+        assert task != null : "Cannot add a null task";
         taskList.add(task);
     }
 
