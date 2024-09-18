@@ -2,6 +2,7 @@ package botty.commands;
 
 import botty.exceptions.BottyException;
 import botty.tasks.Task;
+import botty.tasks.TaskData;
 import botty.tasks.TaskManager;
 
 /**
@@ -22,7 +23,7 @@ public class UnmarkCommand extends Command {
             String argument = parsedInput.getArgument("main");
 
             int taskIndex = Integer.parseInt(argument) - 1;
-            Task task = taskManager.unmarkTask(taskIndex);
+            Task<? extends TaskData> task = taskManager.unmarkTask(taskIndex);
 
             return "It's okay, we can get that done later. I'll mark that as undone for you.\n" + task;
         } catch (NumberFormatException ex) {
